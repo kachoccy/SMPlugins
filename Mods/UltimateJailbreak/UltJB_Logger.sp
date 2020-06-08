@@ -353,7 +353,7 @@ public Action:OnTakeDamage(iVictim, &iAttacker, &iInflictor, &Float:fdamage, &iD
 	strcopy(g_szLastHitVent, sizeof(g_szLastHitVent), szName);
 	
 	new String:szMessage[512];
-	Format(szMessage, sizeof(szMessage), "Vent damaged by: %N using %s - (%s)", iOwner, szWeapon, szName);
+	Format(szMessage, sizeof(szMessage), "   +++   Vent damaged by: %N using %s - (%s)", iOwner, szWeapon, szName);
 	
 	LogEvent(szMessage, iOwner, 0, LOGTYPE_BREAK, false);
 	
@@ -383,7 +383,7 @@ public OnVentBreak(String:szOutput[], iCaller, iActivator, Float:fDelay)
 	new String:szName[64];
 	strcopy(szName, sizeof(szName), g_szLastHitVent);
 	
-	Format(szMessage, sizeof(szMessage), "%N broke a vent (%s).", iActivator, szName, g_szLastHitVent);
+	Format(szMessage, sizeof(szMessage), "   +++   %N broke a vent (%s).", iActivator, szName, g_szLastHitVent);
 	
 	LogEvent(szMessage, iActivator, 0, LOGTYPE_BREAK);
 }
@@ -438,7 +438,7 @@ public EventPlayerDeath_Post(Handle:hEvent, const String:szName[], bool:bDontBro
 	}
 	
 	new String:szMessage[512];
-	Format(szMessage, sizeof(szMessage), "   ---   \"%s\" killed \"%s\"  --  %s.", szAttackerName, szVictimName, szWeaponNameString);
+	Format(szMessage, sizeof(szMessage), "   +++   \"%s\" killed \"%s\"  --  %s.", szAttackerName, szVictimName, szWeaponNameString);
 	
 	LogEvent(szMessage, iAttacker, iVictim, LOGTYPE_ATTACK);
 	
@@ -481,7 +481,7 @@ public EventPlayerHurt_Post(Handle:hEvent, const String:szName[], bool:bDontBroa
 		return;
 		
 	new String:szMessage[512];
-	Format(szMessage, sizeof(szMessage), "   ---   %N damaged %N for %i Health and %i Armor.", iAttacker, iVictim, iDamageHealth, iDamageArmor);
+	Format(szMessage, sizeof(szMessage), "   +++   %N damaged %N for %i Health and %i Armor.", iAttacker, iVictim, iDamageHealth, iDamageArmor);
 	
 	LogEvent(szMessage, iAttacker, iVictim, LOGTYPE_ATTACK);
 	
